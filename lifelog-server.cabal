@@ -1,0 +1,104 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           lifelog-server
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/nutr1t07/lifelog-server#readme>
+homepage:       https://github.com/githubuser/lifelog-server#readme
+bug-reports:    https://github.com/githubuser/lifelog-server/issues
+author:         Nutr1t07
+maintainer:     nutr1t07@outlook.com
+copyright:      2020 Nutr1t07
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/lifelog-server
+
+library
+  exposed-modules:
+      Data.Api
+      Data.Model
+      Data.PayloadType
+      Data.RetType
+      Ops.Event
+      Ops.User
+      Util
+  other-modules:
+      Paths_lifelog_server
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , directory
+    , monad-logger
+    , mtl
+    , persistent
+    , persistent-sqlite
+    , persistent-template
+    , random
+    , servant-server
+    , time
+    , tomland
+    , warp
+    , warp-tls
+  default-language: Haskell2010
+
+executable lifelog-server-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_lifelog_server
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , directory
+    , lifelog-server
+    , monad-logger
+    , mtl
+    , persistent
+    , persistent-sqlite
+    , persistent-template
+    , random
+    , servant-server
+    , time
+    , tomland
+    , warp
+    , warp-tls
+  default-language: Haskell2010
+
+test-suite lifelog-server-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_lifelog_server
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , directory
+    , lifelog-server
+    , monad-logger
+    , mtl
+    , persistent
+    , persistent-sqlite
+    , persistent-template
+    , random
+    , servant-server
+    , time
+    , tomland
+    , warp
+    , warp-tls
+  default-language: Haskell2010

@@ -1,0 +1,61 @@
+name:                lifelog-server
+version:             0.1.0.0
+github:              "githubuser/lifelog-server"
+license:             BSD3
+author:              "Nutr1t07"
+maintainer:          "nutr1t07@outlook.com"
+copyright:           "2020 Nutr1t07"
+
+extra-source-files:
+- README
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/nutr1t07/lifelog-server#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- servant-server
+- persistent
+- persistent-sqlite
+- persistent-template
+- monad-logger
+- aeson
+- warp
+- warp-tls
+- mtl
+- random
+- time
+- tomland
+- directory
+
+library:
+  source-dirs: src
+
+executables:
+  lifelog-server-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wall
+    dependencies:
+    - lifelog-server
+
+tests:
+  lifelog-server-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lifelog-server

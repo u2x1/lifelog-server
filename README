@@ -1,0 +1,30 @@
+# lifelog-server
+
+===== method =====
+
+   router              method       request body                    response body
+/user/login/            Post    {username, password}            {code, msg, value{null}}
+/user/register/         Post    {username, password}            {code, msg, value{null}}
+/user/exist/:username   Get                                     Boolean
+
+/event/fetch/           Post    {userSession, lastSyncTime}     {code, msg, value{tag, contents[$event]}}
+/event/upload/          Post    {userSession, events[$event]}   {code, msg, value{null}}
+
+
+note:
+  event {id, startTime, endTime, modifyTime, name, nameSec, type}
+
+
+
+===== status code =====
+
+100     opearation finished successfully
+101     username already exists (registration)
+102     username not exists
+103     password does not match username
+
+110     opearation finished successfully
+111     user session not exists
+
+201     not implemented
+202     json parse error
